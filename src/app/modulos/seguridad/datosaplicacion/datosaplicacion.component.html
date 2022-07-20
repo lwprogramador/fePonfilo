@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-md-12">
+        <form role="form" [formGroup]="formularioTpoDocumentos" (ngSubmit)="guardarTpoDocumento()">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0"><i class="fas fa-address-book"></i>&nbsp;<b>Tipos de documentos</b></p>
+                        <button class="btn btn-primary btn-sm ms-auto" ngbTooltip="Guardar Información">
+                            <i [class]="CONST_ICONOS.GUARDAR_FORMULARIO"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Codigo</label>
+                                    <input class="form-control" type="text" formControlName="codigo">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Abreviacion</label>
+                                    <input class="form-control" type="text" formControlName="abreviacion">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Tipo de documento</label>
+                                    <input class="form-control" type="text" formControlName="descripcion">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox"  formControlName="extranjero">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Es
+                                            extranjero</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="table table-striped text-start">
+                                <thead>
+                                    <tr>
+                                        <td>Codigo</td>
+                                        <td>Descripcion</td>
+                                        <td>Etranjero</td>
+                                        <td>Estado</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>001</td>
+                                        <td>Detalle</td>
+                                        <td>Etranjero</td>
+                                        <td style="width: 10%;">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="flexSwitchCheckDefault" checked="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

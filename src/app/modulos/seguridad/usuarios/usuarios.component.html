@@ -1,0 +1,289 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <form role="form" [formGroup]="formularioUsuario" (ngSubmit)="guardarDatosUsuario()"></form>
+      <div class="card-header pb-0">
+        <div class="d-flex align-items-center">
+          <p class="mb-0">Perfil de usuario</p>
+          <button class="btn btn-primary btn-sm ms-auto" ngbTooltip="Guardar Información">
+            <i [class]="CONST_ICONOS.GUARDAR_FORMULARIO"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="text-uppercase text-sm">Información personal del colaborador</p>
+        <input type="hidden" id="entCodigo">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Documento</label>
+              <div class="input-group">
+                <ng-select name="choices-button" style="width:40%;">
+                  <ng-option [value]="''">Seleccione</ng-option>
+                  <ng-container *ngFor="let item of tpoDocumento">
+                    <ng-option [value]="item.codigo">{{item.detalle}}</ng-option>
+                  </ng-container>
+                </ng-select>
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Nacionalidad</label>
+              <input class="form-control" type="text" id="entNombre">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Nombres</label>
+              <input class="form-control" type="text" id="entNombre">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Apellidos</label>
+              <input class="form-control" type="email" id="entApellido">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Fecha de nacimiento</label>
+              <input class="form-control" type="date">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Lugar de nacimiento</label>
+              <input class="form-control" type="text">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Ciudad de residencia</label>
+              <ng-select name="choices-button">
+                <ng-option [value]="''">Seleccione</ng-option>
+                <ng-container *ngFor="let item of tpoDocumento">
+                  <ng-option [value]="item.id">{{item.descripcion}}</ng-option>
+                </ng-container>
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Dirección de residencia</label>
+              <input class="form-control" type="text">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Teléfono contacto</label>
+              <input class="form-control" type="text">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Email contacto</label>
+              <input class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+        <hr class="horizontal dark">
+
+        <p class="text-uppercase text-sm">Información contractual del colaborador&emsp;<span class="badge bg-gradient-info">NUEVO</span></p>        
+        <div class="row">
+
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Número de contrato</label>
+              <input class="form-control" type="text">
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Cargo a ejercer</label>
+              <ng-select name="choices-button">
+                <ng-option [value]="''">Seleccione</ng-option>
+                <ng-container *ngFor="let item of tpoDocumento">
+                  <ng-option [value]="item.id">{{item.descripcion}}</ng-option>
+                </ng-container>
+              </ng-select>
+            </div>
+          </div>
+
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Sueldo base</label>
+              <input class="form-control" type="text">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Auxilio legal</label>
+              <input class="form-control" type="text">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Subsidio</label>
+              <input class="form-control" type="text">
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Fecha inicio contrato</label>
+              <input class="form-control" type="date">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Fecha fin de contrato</label>
+              <input class="form-control" type="date">
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Tipo de contrato</label>
+              <ng-select name="choices-button">
+                <ng-option [value]="''">Seleccione</ng-option>
+                <ng-container *ngFor="let item of tpoDocumento">
+                  <ng-option [value]="item.id">{{item.descripcion}}</ng-option>
+                </ng-container>
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Periodo de pago</label>
+              <ng-select name="choices-button">
+                <ng-option [value]="''">Seleccione</ng-option>
+                <ng-container *ngFor="let item of tpoDocumento">
+                  <ng-option [value]="item.id">{{item.descripcion}}</ng-option>
+                </ng-container>
+              </ng-select>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Seguridad social(Salud)</label>
+              <ng-select name="choices-button">
+                <ng-option [value]="''">Seleccione</ng-option>
+                <ng-container *ngFor="let item of tpoDocumento">
+                  <ng-option [value]="item.id">{{item.descripcion}}</ng-option>
+                </ng-container>
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Seguridad social(Pensión)</label>
+              <ng-select name="choices-button">
+                <ng-option [value]="''">Seleccione</ng-option>
+                <ng-container *ngFor="let item of tpoDocumento">
+                  <ng-option [value]="item.id">{{item.descripcion}}</ng-option>
+                </ng-container>
+              </ng-select>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Teléfono empresarial</label>
+              <input class="form-control" type="text">
+            </div>
+          </div>          
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Email empresarial</label>
+              <input class="form-control" type="text">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="example-text-input" class="form-control-label">Contarseña email empresarial</label>
+              <input class="form-control" type="text">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card card-profile">
+      <img src="../assets/img/bg-profile.jpg" alt="Image placeholder" class="card-img-top">
+      <div class="row justify-content-center">
+        <div class="col-4 col-lg-4 order-lg-2">
+          <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
+            <a href="javascript:;">
+              <img src="../assets/img/team-2.jpg" class="rounded-circle img-fluid border border-2 border-white">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body pt-0">
+        <div class="row">
+          <div class="col">
+            <div class="d-flex justify-content-center">
+              <div class="d-grid text-center">
+                <span class="">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="" ngbTooltip="Activar / Inactivar usuario para este colaborador">
+                  </div>
+                </span>
+                <span class="text-sm opacity-8">Activo</span>
+              </div>
+              <div class="d-grid text-center mx-4">
+                <span class="text-lg font-weight-bolder">10</span>
+                <span class="text-sm opacity-8">Photos</span>
+              </div>
+              <div class="d-grid text-center">
+                <span class="text-lg font-weight-bolder">89</span>
+                <span class="text-sm opacity-8">Comments</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="h6 font-weight-300">            
+            <div class="form-group">
+              <div class="input-group mb-4">
+                <span class="input-group-text"><i [class]="CONST_ICONOS.USUARIO"></i></span>
+                <input class="form-control" placeholder="Usuario del colaborador" type="text">
+              </div>
+            </div>
+          </div>
+          
+          <div class="h6 font-weight-300">
+            <table class="table table-striped text-start">
+              <thead>
+                <tr class="text-center">
+                  <th colspan="2" style="width: 90%;">Permisos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 90%;">Permiso 1</td>
+                  <td style="width: 10%;">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
