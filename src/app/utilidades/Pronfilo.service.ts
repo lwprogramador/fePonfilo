@@ -17,7 +17,7 @@ export class Ponfilo {
 
     }
 
-    get tiposDocumento() {
+    get tiposDocumento() {  
         if (validarCampoVacio(this.datosTiposDocumento))
             return this.datosTiposDocumento;
         else
